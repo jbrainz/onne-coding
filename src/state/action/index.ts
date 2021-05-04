@@ -1,7 +1,7 @@
 import { ActionTypes } from '../action-types'
 import { CellTypes } from '../cell'
 
-export type Direction = 'code' | 'text'
+export type Direction = 'up' | 'down'
 
 export interface MoveCellAction {
   type: ActionTypes.MOVE_CELL
@@ -19,7 +19,7 @@ export interface DeleteCellAction {
 export interface InsertCellBeforeAction {
   type: ActionTypes.INSERT_CELL_BEFORE
   payload: {
-    id: string
+    id: string | null
     type: CellTypes
   }
 }
