@@ -6,10 +6,16 @@ import { ActionTypes } from './action-types'
 export const store = createStore(reducers, {}, applyMiddleware(thunk))
 
 store.dispatch({
-  type: ActionTypes.UPDATE_CELL,
+  type: ActionTypes.INSERT_CELL_BEFORE,
   payload: {
-    id: 'c05mt',
-    content: 'new content',
+    id: null,
+    type: 'code',
   },
 })
-console.log(store.getState())
+store.dispatch({
+  type: ActionTypes.INSERT_CELL_BEFORE,
+  payload: {
+    id: null,
+    type: 'text',
+  },
+})
