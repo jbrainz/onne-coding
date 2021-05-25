@@ -38,6 +38,7 @@ const html = `
   `
 const Preview: React.FC<PreviewProps> = ({ code, status }) => {
   const iFrame = useRef<any>()
+  
   useEffect(() => {
     iFrame.current.srcdoc = html
     setTimeout(() => {
