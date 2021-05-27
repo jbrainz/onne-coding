@@ -1,9 +1,9 @@
-import './preview.css'
-import { useRef, useEffect } from 'react'
+import "./preview.css";
+import { useRef, useEffect } from "react";
 
 interface PreviewProps {
-  code: string
-  status: string
+  code: string;
+  status: string;
 }
 
 const html = `
@@ -11,7 +11,7 @@ const html = `
       <head>
         <style>html {background-color: #fff}</style>
       </head>
-      <body>
+    <body>
       <div id="root">
       </div>
       <script>
@@ -33,25 +33,25 @@ const html = `
             }        
           }, false)
       </script>
-      </body>
+    </body>
     </html>
-  `
+  `;
 const Preview: React.FC<PreviewProps> = ({ code, status }) => {
-  const iFrame = useRef<any>()
-  
+  const iFrame = useRef<any>();
+
   useEffect(() => {
-    iFrame.current.srcdoc = html
+    iFrame.current.srcdoc = html;
     setTimeout(() => {
-      iFrame.current.contentWindow.postMessage(code, '*')
-    }, 100)
-  }, [code])
+      iFrame.current.contentWindow.postMessage(code, "*");
+    }, 100);
+  }, [code]);
 
   return (
     <div className="preview-wrapper">
       <iframe ref={iFrame} title="test" srcDoc={html} sandbox="allow-scripts" />
       {status && <div className="preview-error">{status} </div>}
     </div>
-  )
-}
+  );
+};
 
-export default Preview
+export default Preview;
