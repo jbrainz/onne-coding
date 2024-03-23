@@ -24,14 +24,14 @@ export const useCummulativeCode = (cellId: string) => {
        }
      };
      `;
-    const showFuncNoop = "var show = () => {}";
+    const showFunctionNoop = "var show = () => {}";
     const commulativeCode = [];
     for (let c of orderedCells) {
       if (c.type === "code") {
         if (c.id === cellId) {
           commulativeCode.push(showFunc);
         } else {
-          commulativeCode.push(showFuncNoop);
+          commulativeCode.push(showFunctionNoop);
         }
         commulativeCode.push(c.content);
       }
